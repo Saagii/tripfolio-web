@@ -1,0 +1,32 @@
+/* Backdrop overlay */
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+    z-index: 999; /* Just below the drawer's z-index */
+  }
+  
+  /* Drawer styles (same as before, opening from the right) */
+  .custom-drawer {
+    position: fixed;
+    top: 0;
+    right: -600px; /* Initially hidden off the right side of the screen */
+    height: 100%;
+    width: 600px;
+    background-color: #fafafa;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5); /* Shadow on the left */
+    transition: transform 0.3s ease; /* Smooth transition */
+    z-index: 1000; /* Higher z-index than the backdrop */
+  }
+  
+  .custom-drawer.open {
+    transform: translateX(-600px); /* Slide in from the right */
+  }
+  
+//   .custom-drawer-content {
+//     padding: 20px;
+//   }
+  

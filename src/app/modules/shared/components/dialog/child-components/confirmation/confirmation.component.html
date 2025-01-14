@@ -1,0 +1,16 @@
+<div class="w-full p-4">
+
+    <!-- Confirmation Title -->
+    <div class="w-full py-4">{{data.confirmationContent.title}}</div>
+
+    <!-- Confirmation Sub-Title -->
+    <div class="w-10/12 text-gray-500 text-sm">{{data.confirmationContent.subtitle}}</div>
+
+    <!-- Confirmation Actions -->
+    <div class="w-full mt-6">
+        <div class="w-full flex justify-end">
+            <button mat-stroked-button class="" color="warn" (click)="confirmationDialogAction('cancel')">No</button>
+            <button mat-flat-button class="!ml-4" color="primary" (click)="confirmationDialogAction('confirm')">Confirm</button>
+        </div>
+    </div>
+</div>

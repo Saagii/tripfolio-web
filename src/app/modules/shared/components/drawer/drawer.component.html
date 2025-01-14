@@ -1,0 +1,28 @@
+<!-- Backdrop overlay -->
+<div class="backdrop" *ngIf="isOpen"></div>
+
+<!-- Drawer content -->
+<div class="custom-drawer" [class.open]="isOpen">
+    <div class="custom-drawer-content bg-white">
+        <div class="w-full">
+
+            <!-- Drawer Title Block -->
+             <div class="w-full flex items-center border-b border-gray-200 px-4 py-2" *ngIf="drawerStateObject">
+                <div class="w-10/12">
+                    <div class="poppins-semibold text-lg">{{drawerStateObject.drawerTitle}}</div>
+                    <div class="text-xs text-gray-500">{{drawerStateObject.drawerSubtitle}}</div>
+                </div>
+                <div class="w-2/12 flex items-center justify-end">
+                    <button mat-icon-button class="" (click)="closeDrawer()">
+                        <mat-icon>close</mat-icon>
+                    </button>
+                </div>
+             </div>
+    
+             <!-- Drawer Content Block -->
+              <div class="w-full" *ngIf="drawerContent">
+                <ng-template [cdkPortalOutlet]="drawerContent"></ng-template>
+              </div>
+        </div>
+    </div>
+</div>

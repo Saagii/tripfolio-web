@@ -1,0 +1,28 @@
+<div class="px-4 py-2 border-b border-gray-200">
+
+    <!-- Header -->
+    <div class="w-full flex items-center justify-between">
+
+        <!-- Title Block -->
+        <div class="w-10/12">
+
+            <!-- Title -->
+            <div class="text-lg poppins-medium text-blue-600">{{data.dialogMetaData.title}}</div>
+
+            <!-- Subtitle -->
+            <div class="text-xs poppins-regular text-gray-500">{{data.dialogMetaData.subtitle}}</div>
+        </div>
+
+        <!-- Close Button -->
+        <div class="w-1/12 flex justify-end">
+            <button mat-icon-button class="" mat-dialog-close>
+                <mat-icon>close</mat-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation -->
+<div *ngIf="data.type === 'confirmation' ">
+    <dialog-confirmation></dialog-confirmation>
+</div>
