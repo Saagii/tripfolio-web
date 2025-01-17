@@ -11,6 +11,8 @@ import { SnackbarService } from '../shared/services/snackBar.service';
 })
 export class MainComponent implements OnInit {
 
+  isMenuOpen = false;
+
   constructor(
     private router: Router,
     public dialog: MatDialog,

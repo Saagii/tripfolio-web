@@ -1,1 +1,33 @@
-<div>Main Module Loading...</div>
+<!-- Desktop/Laptop Navigation -->
+<div class="w-full hidden md:flex justify-between items-center px-6 py-4 poppins-regular">
+    <div class="flex items-center">
+        <div class="hammersmith-one-regular text-xl text-blue-700 uppercase">Tripfolio</div>
+    </div>
+    <div class="flex justify-center items-center text-sm">
+        <div class="mr-4 px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer">Home</div>
+        <div class="mr-4 px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer">About</div>
+        <div class="px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer">Contact Us</div>
+    </div>
+    <div class="px-4 py-1 hover:bg-gray-100 text-sm rounded-md hover:cursor-pointer border border-gray-300">Login</div>
+</div>
+
+<!-- Mobile/Tablet Navigation -->
+<div class="w-full md:hidden flex justify-between items-center px-6 py-4 poppins-regular">
+    <div class="flex items-center">
+        <div class="hammersmith-one-regular text-xl text-blue-700 uppercase">Tripfolio</div>
+    </div>
+    <div class="relative">
+        <button (click)="isMenuOpen = !isMenuOpen" class="p-2 hover:bg-gray-100 rounded-md">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+        <div *ngIf="isMenuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">Home</div>
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">About</div>
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">Contact Us</div>
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer border-t border-gray-100">Login</div>
+        </div>
+    </div>
+</div>
+<router-outlet></router-outlet>
