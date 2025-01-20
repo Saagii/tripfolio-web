@@ -26,12 +26,27 @@ export class DrawerService {
     drawerClosed$ = new Subject<void>();
     drawerState$ = this.drawerState.asObservable();
 
-    open(content: TemplateRef<any>, drawerObject: any) {
-        this.drawerState.next({ isOpen: true, content, drawerObject: drawerObject });
+    open(content: TemplateRef<any>, drawerObject: DrawerObject) {
+        console.log('Opening drawer with:', drawerObject);
+        console.log('Previous drawer state:', this.drawerState.value);
+        const newState: DrawerState = {
+            isOpen: true,
+            content,
+            drawerObject: { ...drawerObject }
+        };
+        console.log('New drawer state:', newState);
+        this.drawerState.next(newState);
+        
+        console.log('Current drawer state:', this.drawerState.value);
     }
 
     close() {
-        this.drawerState.next({ isOpen: false, drawerObject: this.defaultDrawerObject });
-        this.drawerClosed$.next(); // Notify subscribers that the drawer is closed
+        console.log('Closing drawer');
+        const newState: DrawerState = {
+            isOpen: false,
+            drawerObject: this.defaultDrawerObject
+        };
+        this.drawerState.next(newState);
+        this.drawerClosed$.next();
     }
 }

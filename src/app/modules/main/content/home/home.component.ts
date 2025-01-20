@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { DrawerObject, DrawerService } from '../../../shared/services/drawer.service';
+import { UserActionData } from '../../data/userAction.data';
+import { SampleTripDetailsData } from '../../data/sampleTripDetails.data';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +12,13 @@ export class HomeComponent implements OnInit {
   showImageModal = false;
   selectedImage = '';
   zoomLevel = 1;
+  userActionData = UserActionData;
+  sampleTripDetailsData = SampleTripDetailsData;
+  activeTripIdItenary = '';
 
-  constructor() { }
+  constructor(
+    private drawerService: DrawerService
+  ) { }
 
   ngOnInit(): void {
     // Initialization logic goes here
@@ -43,6 +51,34 @@ export class HomeComponent implements OnInit {
   zoomOut(event: MouseEvent) {
     event.stopPropagation();
     this.zoomLevel -= 0.1;
+  }
+
+  openDrawer(template: TemplateRef<any>, actionType: string, tripId?: string, customData?: any): void {
+    console.log('Inside Open Drawer Method');
+    let drawerTitle = '';
+    let drawerSubtitle = '';
+    for(const userAction of this.userActionData) {
+      if(userAction.actionType === actionType) {
+        drawerTitle = userAction.title;
+        drawerSubtitle = userAction.subTitle;
+      }
+    }
+
+    const additionalSupportiveData = {
+      customData: customData ? customData : null
+    }
+
+    const drawerObject: DrawerObject = {
+      drawerTitle: drawerTitle,
+      drawerSubtitle: drawerSubtitle ,
+      drawerData: {
+        actionType: actionType,
+        tripId: tripId,
+        customData: additionalSupportiveData
+      }
+    }
+    console.log(drawerObject);
+    this.drawerService.open(template, drawerObject);
   }
 }
 

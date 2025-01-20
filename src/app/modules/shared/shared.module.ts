@@ -39,6 +39,7 @@ import { ButtonLoaderDirective } from './directives/buttonLoader.directive';
     DialogSharedComponent,
     ConfirmationComponent,
     LoaderComponent,
+    
 
     // Directives
     ButtonLoaderDirective,
