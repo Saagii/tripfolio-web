@@ -5,14 +5,14 @@ import { MainComponent } from './main.component';
 import { MainRoutingModule } from './main-routing.module';
 import { HomeComponent } from './content/home/home.component';
 import { AboutComponent } from './content/about/about.component';
-import { TripItenaryComponent } from './content/trip-itenary/trip-itenary.component';
+import { FooterComponent } from './content/footer/footer.component';
 
 @NgModule({
   declarations: [
     MainComponent,
     HomeComponent,
     AboutComponent,
-    TripItenaryComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -23,7 +23,7 @@ import { TripItenaryComponent } from './content/trip-itenary/trip-itenary.compon
     MainComponent,
     HomeComponent,
     AboutComponent,
-    TripItenaryComponent
+    FooterComponent
   ]
 })
 

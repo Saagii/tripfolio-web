@@ -4,9 +4,9 @@
         <div class="hammersmith-one-regular text-xl text-blue-700 uppercase">Tripfolio</div>
     </div>
     <div class="flex justify-center items-center text-sm">
-        <div class="mr-4 px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer">Home</div>
-        <div class="mr-4 px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer">About</div>
-        <div class="px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer">Contact Us</div>
+        <div class="mr-4 px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer" [routerLink]="['']">Home</div>
+        <div class="mr-4 px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer" [routerLink]="['/about']">About</div>
+        <div class="px-4 py-2 hover:bg-gray-100 hover:rounded-md hover:cursor-pointer" [routerLink]="['/contact']">Contact Us</div>
     </div>
     <div class="px-4 py-1 hover:bg-gray-100 text-sm rounded-md hover:cursor-pointer border border-gray-300">Login</div>
 </div>
@@ -23,11 +23,16 @@
             </svg>
         </button>
         <div *ngIf="isMenuOpen" class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-2 z-10">
-            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">Home</div>
-            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">About</div>
-            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer">Contact Us</div>
-            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer border-t border-gray-100">Login</div>
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer" [routerLink]="['']">Home</div>
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer" [routerLink]="['/about']">About</div>
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer" [routerLink]="['/contact']">Contact Us</div>
+            <div class="px-4 py-2 hover:bg-gray-100 hover:cursor-pointer border-t border-gray-100" [routerLink]="['/login']">Login</div>
         </div>
     </div>
 </div>
+
+<!-- Main Content Section: Routes -->
 <router-outlet></router-outlet>
+
+<!-- Footer Section -->
+<app-footer></app-footer>
